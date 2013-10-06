@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 gem 'rails', '4.0.0'
 
-gem 'twitter-bootstrap-rails', git: 'http://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'sqlite3'
@@ -30,7 +29,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 #gem 'jbuilder', '~> 1.2'
 gem 'ancestry'
-
+gem 'twitter-bootstrap-rails', git: 'http://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
 # group :doc do
   # # bundle exec rake doc:rails generates the API under doc/api.
   # gem 'sdoc', require: false
