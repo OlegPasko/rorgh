@@ -41,6 +41,7 @@ GEM
       activerecord (>= 3.0.0)
     arel (4.0.0)
     atomic (1.1.14)
+    bcrypt-ruby (3.0.1)
     builder (3.1.4)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -136,6 +137,7 @@ PLATFORMS
 
 DEPENDENCIES
   ancestry
+  bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 4.0.0.beta1)
   heroku
   jquery-rails

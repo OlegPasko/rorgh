@@ -1,0 +1,10 @@
+<% comments.each do |c, children| %>
+	<div class="next_level">
+		<blockquote>
+		  <p><%= c.body %></p>
+		  <small class="pull-right reply"><%= link_to 'Ответить', new_post_comment_path(c.post, comment_id: c.id), remote: true, class: "add_comment#{c.id}" %></small>
+		  <small><%= c.user.name %> @ <%= c.created_at.strftime('%d.%m.%Y')%></small>
+		</blockquote>
+		<%= render '/comments/comment', comments: children if children.present? %>
+	</div>		
+<% end %>

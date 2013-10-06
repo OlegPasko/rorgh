@@ -1,0 +1,26 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+.reply a {
+	border-bottom: 1px dashed #0088cc;
+}
+.reply a:hover {
+	text-decoration: none;
+	border-bottom: 1px solid #005580;
+}
+.comment_box #new_comment {
+	margin-left: 20px;
+}
+.root_comment a {
+	color: #000;
+	border-bottom: 1px dashed #000;
+}
+.root_comment a:hover {
+	color: #000;
+	border-bottom: 1px solid #000;
+	text-decoration: none;
+}
+.next_level {
+	margin-left: 20px;
+}

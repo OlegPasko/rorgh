@@ -1,0 +1,35 @@
+<div class="page-header">
+	<h1>Регистрация</h1>
+</div>
+<div class="col-md-4">
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Ошибочки</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, "Имя (желательно с фамилией)" %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, "Пароль" %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation, "Еще раз пароль" %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+  <div class="form-group"><%= f.submit "Зарегистрироваться", class: 'btn btn-primary' %></div>
+<% end %>
+</div>

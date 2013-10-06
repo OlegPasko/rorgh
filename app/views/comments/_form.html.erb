@@ -1,0 +1,9 @@
+<%= form_for([@post, @comment], :html => { :class => 'form-vertical' }) do |f| %>
+	<div class="form-group">
+		<%= f.text_area :body, rows: 4, placeholder: 'тест комментария', class: 'form-control' %>
+	</div>
+	<%= f.hidden_field :parent_id, value: params[:comment_id] ? params[:comment_id] : nil, class: '' %>
+	<div class="form-group">
+		<%= f.submit 'Отправить комментарий', class: 'btn btn-primary' %>
+	</div>
+<% end %>

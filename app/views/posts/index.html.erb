@@ -1,0 +1,34 @@
+<table class="table table-hover posts">
+	<thead>
+		<tr>
+			<th>Тема</th>
+			<th>Автор</th>
+			<th>
+				<div class="pull-right">Действия</div>
+			</th>
+		</tr>
+	</thead>
+  <tbody>
+    <% @posts.order(:updated_at).reverse.each do |post| %>
+      <tr class="post <%= 'warning' if post.user.admin %>">
+        <td><%= link_to post.name, post %> <small>/ <%= post.created_at.strftime('%d.%m.%Y в %H:%M') %></small></td>
+        <td><%= post.user.name %></td>
+        <td>
+        	<div class="controls">
+	        	<div class="pull-right">
+		        	<%= link_to 'Посмотреть', post, class: 'btn btn-default btn-xs' %> 
+		        	<% if post.user == current_user or current_user.admin %>
+		        		<%= link_to 'Редактировать', edit_post_path(post), class: 'btn btn-default btn-xs' %> 
+		        		<%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Точно-точно?' }, class: 'btn btn-danger btn-xs' %>
+		        	<% end %>
+	        	</div>
+        	</div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новая тема', new_post_path, class: 'btn btn-primary' %>
