@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params.require(:user).permit(:email, :name, :password, :password_confirmation))
     @user.email = params[:user][:email].downcase
+    @user.admin = true unless User.any?
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_url, notice: "Тадам!"
