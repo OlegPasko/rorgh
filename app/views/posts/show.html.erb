@@ -3,7 +3,7 @@
 </div>
 <dl class="dl-horizontal">
   <dt>
-  	<%= @post.user.name %><br />
+  	<%= @post.user.displayed_name %><br />
   	<small><%= @post.created_at.strftime('%d.%m.%Y в %H:%M') %></small>
   </dt>
   <dd><%= sanitize @post.body.gsub(/\n/, '<br/>') %></dd>
@@ -23,7 +23,7 @@
 			<blockquote>
 			  <p><%= c.body %></p>
 			  <small class="pull-right reply"><%= link_to 'Ответить', new_post_comment_path(@post, comment_id: c.id), remote: true, class: "add_comment#{c.id}" %></small>
-			  <small><%= c.user.name %> @ <%= c.created_at.strftime('%d.%m.%Y')%></small>
+			  <small><%= c.user.displayed_name %> @ <%= c.created_at.strftime('%d.%m.%Y')%></small>
 			</blockquote>
 			<%= render '/comments/comment', comments: c.descendants.arrange %>
 		</div>
