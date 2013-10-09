@@ -1,5 +1,7 @@
 # coding: utf-8
 class UsersController < ApplicationController
+  before_action :admin_area, only: :index
+
   def new
     @user = User.new
   end
@@ -16,5 +18,9 @@ class UsersController < ApplicationController
         format.html { render action: "new" }
       end
     end
+  end
+
+  def index
+    @users = User.all
   end
 end
