@@ -6,3 +6,6 @@
 .posts .post .controls {
 	min-width: 260px;
 }
+.post .avatar {
+	margin: 5px 0;
+}

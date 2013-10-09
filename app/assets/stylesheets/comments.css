@@ -24,3 +24,7 @@
 .next_level {
 	margin-left: 20px;
 }
+.comment_box .avatar {
+	float: left;
+	margin-right: 8px;
+}
