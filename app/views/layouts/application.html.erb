@@ -36,6 +36,7 @@
 		<%= yield %>
 	  </div>
   </div>
+<%= render :partial => '/layouts/metrika' if Rails.env.production? %>
 
 </body>
 </html>
