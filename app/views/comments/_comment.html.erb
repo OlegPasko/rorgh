@@ -4,7 +4,7 @@
 		 <div class="avatar">
 			  <%= image_tag gravatar_url(c.user, 50) %>
 		  </div>
-		  <p><%= c.body %></p>
+          <p><%= sanitize c.body.gsub(/\n/, '<br/>') %></p>
 		  <small class="pull-right reply"><%= link_to 'Ответить', new_post_comment_path(c.post, comment_id: c.id), remote: true, class: "add_comment#{c.id}" %></small>
 		  <small><%= c.user.displayed_name %> @ <%= c.created_at.strftime('%d.%m.%Y в %H:%M')%></small>
 		</blockquote>
