@@ -2,7 +2,9 @@ Rorgh::Application.routes.draw do
 
   resources :posts do
     resources :comments
+    resources :answers
   end
+  resources :answers
   resources :users
   resources :sessions
   

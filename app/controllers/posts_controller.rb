@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
+    @answer = Answer.new
     @comment = Comment.new
     @comments = @post.comments.roots
   end
@@ -57,7 +58,7 @@ class PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:name, :body)
+      params.require(:post).permit(:name, :body, :task)
     end
     
     def check_user

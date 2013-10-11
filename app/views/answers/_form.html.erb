@@ -1,0 +1,19 @@
+<%= form_for([@post, @answer], :html => { :class => 'form-vertical answer-form', style: 'display: none;' }) do |f| %>
+	<div class="form-group">
+		<%= f.text_field :link, placeholder: 'Cсылка на выполненное задание', class: 'form-control' %>
+	</div>
+	<div class="form-group">
+		<%= f.text_area :comment, rows: 2, placeholder: 'Дополнительный комментарий', class: 'form-control' %>
+	</div>
+	<% if current_user.admin %>
+	<div class="form-group">
+		<%= f.select :status, Answer::STATUSES, class: 'form-control' %>
+	</div>
+	<div class="form-group">
+		<%= f.text_area :correction_comment, rows: 2, placeholder: 'Корректировка', class: 'form-control' %>
+	</div>
+	<% end %>
+	<div class="form-group">
+		<%= f.submit 'Отправить задание', class: 'btn btn-primary' %>
+	</div>
+<% end %>

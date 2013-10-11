@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131006205847) do
+ActiveRecord::Schema.define(version: 20131011142506) do
+
+  create_table "answers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.string   "link"
+    t.text     "comment"
+    t.string   "status",             default: "new"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "correction_comment"
+  end
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -30,6 +41,7 @@ ActiveRecord::Schema.define(version: 20131006205847) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "task",                   default: false
   end
 
   create_table "users", force: true do |t|
@@ -39,6 +51,7 @@ ActiveRecord::Schema.define(version: 20131006205847) do
     t.boolean  "admin",           default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "student",         default: false
   end
 
 end

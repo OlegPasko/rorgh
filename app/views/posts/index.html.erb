@@ -15,8 +15,8 @@
 	</thead>
   <tbody>
     <% @posts.order(:updated_at).reverse.each do |post| %>
-      <tr class="post <%= 'warning' if post.user.admin %>">
-        <td><%= link_to post.name, post %> <small>/ <%= post.created_at.strftime('%d.%m.%Y в %H:%M') %></small></td>
+      <tr class="post <%= 'warning' if post.task %>">
+        <td><%= raw("<span class='label label-success'>Задание</span>") if post.task %> <%= link_to post.name, post %><small> @ <%= post.created_at.strftime('%d.%m.%Y в %H:%M') %></small></td>
         <td><%= post.user.displayed_name %></td>
         <td>
         	<div class="controls">

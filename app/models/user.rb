@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
     
   has_many :posts
   has_many :comments
+  has_many :answers
   
   def displayed_name
     name.split(' ').count == 2 ? name.split(' ')[0]+' '+name.split(' ')[1][0]+'.' : 'filtered name'

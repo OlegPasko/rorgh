@@ -18,7 +18,35 @@
 	<small><cite title="Source Title"></cite></small>
 </blockquote> -->
 <hr />
-
+<% if @post.task and current_user.student %>
+	<% if current_user.answers.where(post_id: @post.id).any? %>
+		<div id="post-answer">
+			<% answer = current_user.answers.where(post_id: @post.id).first %>
+			<h4>Ответ к заданию <%= link_to 'Изменить ответ', edit_post_answer_path(@post, answer), remote: true, class: 'btn btn-success new-answer btn-xs' if answer.status == 'new' %></h4>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Ссылка</th>
+						<th>Комментарий</th>
+						<th>Статус</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= answer.link %></td>
+						<td><%= answer.comment %></td>
+						<td><%= answer.status %><%= raw(': '+answer.correction_comment) if answer.status == 'for_revision' %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<% else %>
+		<div id="post-answer">
+			<%= link_to 'Выслать выполненное задание', new_post_answer_path(@post), remote: true, class: 'btn btn-success new-answer' %>
+			<%= render '/answers/form' %>
+		</div>
+	<% end %>
+<% end %>
 <h4>Комментарии</h4>
 
 <div class="first_level comment_box">
