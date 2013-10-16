@@ -29,6 +29,11 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
+      if @post.task
+        User.all.each do |u|
+          UserMailer.new_task(u, @post).deliver
+        end
+      end
       redirect_to @post, notice: 'Тема создана.'
     else
       render action: 'new'
