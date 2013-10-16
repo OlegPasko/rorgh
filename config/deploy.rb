@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 server "146.185.146.152", :web, :app, :db, primary: true
-set :shared_children, shared_children + %w{public/uploads}
+set :shared_children, shared_children + %w{public/uploads .secret}
 set :application, "rorgh"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
